@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset='utf-8'>
+		<title>mdereuse resume</title>
+	</head>
+	<body>
+		<h1>{name}</h1>
+		<p>
+			Age : {age}
+		</p>
+		<p>
+			Profession : {job}
+		</p>
+		<h2>Parcours</h2>
+		<table style='border-collapse; border:1px solid black'>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Cursus</th>
+					<th>Etablissement</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{date0}</td>
+					<td>{cursus0}</td>
+					<td>{etablissement0}</td>
+				</tr>
+				<tr>
+					<td>{date1}</td>
+					<td>{cursus1}</td>
+					<td>{etablissement1}</td>
+				</tr>
+				<tr>
+					<td>{date2}</td>
+					<td>{cursus2}</td>
+					<td>{etablissement2}</td>
+				</tr>
+				<tr>
+					<td>{date3}</td>
+					<td>{cursus3}</td>
+					<td>{etablissement3}</td>
+				</tr>
+				<tr>
+					<td>{date4}</td>
+					<td>{cursus4}</td>
+					<td>{etablissement4}</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Competences</h2>
+		<ol>
+			<li>
+				Langages et frameworks
+				<ul>
+					<li>{skill0}</li>
+					<li>{skill1}</li>
+					<li>{skill2}</li>
+					<li>{skill3}</li>
+					<li>{skill4}</li>
+					<li>{skill5}</li>
+					<li>{skill6}</li>
+				</ul>
+			</li>
+		</ol>
+	</body>
+</html>
