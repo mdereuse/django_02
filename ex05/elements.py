@@ -114,6 +114,49 @@ def main():
         ])
     ).replace("&quot;", "\"")
     print(txt)
+    print()
+    big_txt = str(Html([
+        Head([
+            Title(Text("\"Hello ground!\"")),
+            Meta(attr={"charset": "utf-8"}),
+        ]),
+        Body([
+            H1(Text("\"Oh no, not again!\"")),
+            Hr(),
+            Div([
+                H2(Text("\"Yes, again.\"")),
+                Span([
+                    P([
+                        Text("This is one text in a P."),
+                        Br(),
+                        Text("This is a second text in a P.")
+                    ]),
+                    Text("This is a text outside a P.")
+                ])
+            ]),
+            Div([
+                Table([
+                    Tr([
+                        Th(Text("Pif")), Th(Text("Paf")), Th(Text("Pouf"))
+                    ]),
+                    Tr([
+                        Td(Text("1")), Td(Text("2")), Td(Text("3"))
+                    ]),
+                    Tr([
+                        Td(Text("4")), Td(Text("5")), Td(Text("6"))
+                    ])
+                ]),
+                Br(),
+                Ul([
+                    Li(Text("truc")), Li(Text("bidule")), Li(Text("chouette"))
+                ]),
+                Ol([
+                    Li(Text("chose")), Li(Text("machin")), Li(Text("blop"))
+                ]),
+            ])
+        ])
+    ]))
+    print(big_txt)
 
 
 if __name__ == "__main__":
