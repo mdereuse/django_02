@@ -3,39 +3,38 @@ from elem import Text
 
 
 class Page:
+    type_lst = [
+        Html,
+        Head,
+        Body,
+        Title,
+        Meta,
+        Img,
+        Table,
+        Th,
+        Tr,
+        Td,
+        Ul,
+        Ol,
+        Li,
+        H1,
+        H2,
+        P,
+        Div,
+        Span,
+        Hr,
+        Br,
+        Text
+    ]
+
     def __init__(self, elem: Elem):
         self.elem = elem
 
     @staticmethod
-    def _is_valid_type(elem):
-        type_lst = [
-            Html,
-            Head,
-            Body,
-            Title,
-            Meta,
-            Img,
-            Table,
-            Th,
-            Tr,
-            Td,
-            Ul,
-            Ol,
-            Li,
-            H1,
-            H2,
-            P,
-            Div,
-            Span,
-            Hr,
-            Br,
-            Text
-        ]
-        return type(elem) in type_lst
-
-    @staticmethod
     def _is_elem_valid(elem):
-        if isinstance(elem, Html):
+        if type(elem) not in Page.type_lst:
+            return False
+        elif isinstance(elem, Html):
             if not (len(elem.content) == 2
                     and isinstance(elem.content[0], Head)
                     and isinstance(elem.content[1], Body)):
@@ -44,7 +43,7 @@ class Page:
             if not (len(elem.content) == 1
                     and isinstance(elem.content[0], Title)):
                 return False
-        elif isinstance(elem, Body) or isinstance(elem, Div):
+        elif type(elem) in [Body, Div]:
             for child in elem.content:
                 if type(child) not in [H1, H2, Div, Table, Ul, Ol, Span, Text]:
                     return False
@@ -75,20 +74,26 @@ class Page:
         elif isinstance(elem, Table):
             if not all(isinstance(child, Tr) for child in elem.content):
                 return False
-        elif not Page._is_valid_type(elem):
-            return False
-        else:
+        elif isinstance(elem, Text):
             return True
-
+        return all(Page._is_elem_valid(child) for child in node.content)
 
     def is_valid(self):
-        for child in self.content:
-            
-            
+        return Page._is_elem_valid(self.elem)
 
+    def __str__(self):
+        if isinstance(self.elem, Html):
+            return "<!DOCTYPE html>" + str(self.elem)
+        else:
+            return str(self.elem)
+
+    def write_to_file(self, filepath):
+        with open(filepath, "w") as f:
+            f.write(str(self))
+            
 
 def main():
-    print(type(Div()) in [Div, Html])
+    print(all([]))
 
 
 if __name__ == "__main__":
