@@ -25,12 +25,12 @@ class Intern:
 
 
 def main():
-    intern0 = Intern()
-    intern1 = Intern("Mark")
-    print(intern0)
-    print(intern1)
-    print(intern1.make_coffee())
     try:
+        intern0 = Intern()
+        intern1 = Intern("Mark")
+        print(intern0)
+        print(intern1)
+        print(intern1.make_coffee())
         intern0.work()
     except Exception as e:
         print(e)

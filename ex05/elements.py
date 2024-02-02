@@ -18,7 +18,8 @@ class Body(Elem):
 
 class Title(Elem):
     def __init__(self, content=None, attr={}):
-        super().__init__("title", attr=attr, content=content, tag_type="double")
+        super().__init__(
+                "title", attr=attr, content=content, tag_type="double")
 
 
 class Meta(Elem):
@@ -33,7 +34,8 @@ class Img(Elem):
 
 class Table(Elem):
     def __init__(self, content=None, attr={}):
-        super().__init__("table", attr=attr, content=content, tag_type="double")
+        super().__init__(
+                "table", attr=attr, content=content, tag_type="double")
 
 
 class Th(Elem):

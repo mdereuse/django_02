@@ -21,7 +21,7 @@ class CoffeeMachine:
         self.beverage_served = 0
         print("Machine has been repaired!")
 
-    def serve(self, beverage: HotBeverage):
+    def serve(self, beverage):
         if self.broken:
             raise self.BrokenMachineException
         r = random.random()
@@ -29,13 +29,14 @@ class CoffeeMachine:
         if self.beverage_served == 10:
             self.broken = True
         if r > 0.5:
-            return beverage
+            return beverage()
         else:
             return self.EmptyCup()
 
+
 def main():
     coffee_machine = CoffeeMachine()
-    beverage_lst = [Tea(), Coffee(), Cappuccino(), Chocolate()]
+    beverage_lst = [Tea, Coffee, Cappuccino, Chocolate]
     n = 0
     while n < 2:
         try:
@@ -47,7 +48,6 @@ def main():
             coffee_machine.repair()
             print()
             n += 1
-
 
 
 if __name__ == "__main__":
