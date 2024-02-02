@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 class HotBeverage:
     price = 0.30
     name = "hot beverage"

@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 import random
 from beverages import HotBeverage, Coffee, Cappuccino, Chocolate, Tea
 
@@ -21,7 +24,7 @@ class CoffeeMachine:
         self.beverage_served = 0
         print("Machine has been repaired!")
 
-    def serve(self, beverage):
+    def serve(self, beverage: HotBeverage) -> HotBeverage():
         if self.broken:
             raise self.BrokenMachineException
         r = random.random()
